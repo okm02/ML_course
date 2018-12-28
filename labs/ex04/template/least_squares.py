@@ -14,4 +14,6 @@ def least_squares(y, tx):
     # least squares: TODO
     # returns mse, and optimal weights
     # ***************************************************
-    raise NotImplementedError
+    closed_form_sol = np.dot(np.dot(np.linalg.inv(np.dot(tx.T,tx)),tx.T),y)
+    
+    return closed_form_sol

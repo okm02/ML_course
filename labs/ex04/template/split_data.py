@@ -16,4 +16,11 @@ def split_data(x, y, ratio, seed=1):
     # INSERT YOUR CODE HERE
     # split the data based on the given ratio: TODO
     # ***************************************************
-    raise NotImplementedError
+    rows = range(0,x.shape[0])
+    np.random.shuffle(rows)
+    train_len = int(ratio * len(rows))
+    train_indices,test_indices = rows[0:train_len],rows[train_len:]
+    train_data,train_target = x[train_indices],y[train_indices]
+    test_data,test_target = x[test_indices],y[test_indices]
+
+    return train_data,train_target,test_data,test_target
